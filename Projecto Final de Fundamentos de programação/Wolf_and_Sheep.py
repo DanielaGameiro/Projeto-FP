@@ -1,6 +1,9 @@
 import pygame
 import os
 from pygame.locals import*
+from Constantes import Cumprimento, Largura
+from Game import Game
+from Rules import Rules
 import pygame.freetype
 
 def Menu():
@@ -8,9 +11,7 @@ def Menu():
     pygame.init()
     pygame.font.init()
 
-    cumprimento = 1300
-    largura = 650
-    screen = pygame.display.set_mode((cumprimento, largura))
+    screen = pygame.display.set_mode((Cumprimento, Largura))
 
     pygame.display.set_caption("Wolf & Sheep")
     icon = pygame.image.load('Wolf_&_Sheep_v2.png')
@@ -40,7 +41,7 @@ def Menu():
     rules_surface = rules.render("Rules", True, (255, 255, 255))
 
     pygame.mixer.music.load('non-copyrighted-music-lakey-inspired-chill-day-hip-hop-beat.ogg')
-    pygame.mixer.music.play(0)
+    pygame.mixer.music.play(-1)
 
     clock = pygame.time.Clock()
     running = True
@@ -61,16 +62,26 @@ def Menu():
             if (event.type == pygame.QUIT):
                 running = False
 
-        if (event.type == pygame.MOUSEBUTTONDOWN):
-            mx, my = pygame.mouse.get_pos()
-            if (mx > 550) and (mx < 750) and (my > 250) and (my < 310):
-                import Game
+        mx, my = pygame.mouse.get_pos()
+        mb = pygame.mouse.get_pressed()
 
-            if (mx > 550) and (mx < 750) and (my > 350) and (my < 410):
-                import Rules
+        if (mx > 550) and (mx < 750) and (my > 250) and (my < 310):
+            rect1_exterior = pygame.draw.rect(screen, (0, 0, 100), (550, 250, 200, 60), 0)
+            rect1_interior = pygame.draw.rect(screen, (0, 138, 190), (562, 255, 175, 50), 0)
+            if(mb[0]):
+                Game()
 
-            if (mx > 550) and (mx < 750) and (my > 450) and (my < 510):
-                exit()
+        elif (mx > 550) and (mx < 750) and (my > 350) and (my < 410):
+            rect3_exterior = pygame.draw.rect(screen, (0, 0, 100), (550, 350, 200, 60), 0)
+            rect3_interior = pygame.draw.rect(screen, (0, 138, 190), (562, 355, 175, 50), 0)
+            if(mb[0]):
+                Rules()
+
+        elif (mx > 550) and (mx < 750) and (my > 450) and (my < 510):
+            rect2_exterior = pygame.draw.rect(screen, (0, 0, 100), (550, 450, 200, 60), 0)
+            rect2_interior = pygame.draw.rect(screen, (0, 138, 190), (562, 455, 175, 50), 0)
+            if(mb[0]):
+                running = False
 
         screen.blit(Sheep, (Sheep_x, Sheep_y))
         screen.blit(Wolf, (Wolf_x, Wolf_y))

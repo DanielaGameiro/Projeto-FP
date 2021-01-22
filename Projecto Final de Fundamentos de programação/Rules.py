@@ -1,16 +1,15 @@
 import pygame
 import os
 from pygame.locals import*
+from Constantes import Cumprimento, Largura
 import pygame.freetype
 
-def Menu():
+def Rules():
 
     pygame.init()
     pygame.font.init()
 
-    cumprimento = 1300
-    largura = 650
-    screen = pygame.display.set_mode((cumprimento, largura))
+    screen = pygame.display.set_mode((Cumprimento, Largura))
 
     pygame.display.set_caption("Wolf & Sheep")
     icon = pygame.image.load('Wolf_&_Sheep_v2.png')
@@ -60,9 +59,13 @@ def Menu():
             if (event.type == pygame.QUIT):
                 running = False
 
-        if (event.type == pygame.MOUSEBUTTONDOWN):
-            mx, my = pygame.mouse.get_pos()
-            if (mx > 1050) and (mx < 1250) and (my > 550) and (my < 610):
+        mx, my = pygame.mouse.get_pos()
+        mb = pygame.mouse.get_pressed()
+
+        if (mx > 1050) and (mx < 1250) and (my > 550) and (my < 610):
+            rect1_exterior = pygame.draw.rect(screen, (0, 0, 100), (1050, 550, 200, 60), 0)
+            rect1_interior = pygame.draw.rect(screen, (0, 138, 190), (1062, 555, 175, 50), 0)
+            if(mb[0]):
                 return
         
         screen.blit(rules_surface,(500, 20))
@@ -78,5 +81,3 @@ def Menu():
         pygame.display.flip()
         clock.tick(60)
         pygame.display.update()
-
-Menu()
