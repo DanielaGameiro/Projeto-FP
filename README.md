@@ -1,4 +1,4 @@
-#__Projeto Final da UC Fundamentos de Programação__
+__Projeto Final da UC Fundamentos de Programação__
 
 __Autoras:__ Daniela Gameiro nº21901681 e Leonor Figueiredo nº21902968
 
