@@ -45,10 +45,6 @@ def Menu_principal():
     leave = pygame.font.SysFont("NotoSans-Regular.ttff", 70)
     leave_surface = rules.render("Exit", True, White)
 
-    #Colocar música no jogo
-    pygame.mixer.music.load('non-copyrighted-music-lakey-inspired-chill-day-hip-hop-beat.ogg')
-    pygame.mixer.music.play(-1)
-
     clock = pygame.time.Clock()
 
     running = True
