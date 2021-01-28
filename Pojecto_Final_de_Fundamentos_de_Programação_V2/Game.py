@@ -57,6 +57,15 @@ def Game():
             if (mb[0]):
                 return
 
+        k = pygame.key.get_pressed()
+
+        if (k[pygame.K_LEFT]):
+            Sheep_1.going_up_left()
+        elif(k[pygame.K_RIGHT]):
+            Sheep_1.going_up_right()
+        elif(k[pygame.K_DOWN]):
+            Sheep_1.going_down()
+
         screen.blit(leave_surface, (1100, 560))
         clock.tick(60)
         Board_Game.Draw(screen)
