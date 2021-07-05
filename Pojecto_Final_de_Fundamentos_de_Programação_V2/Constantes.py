@@ -1,3 +1,5 @@
+import pygame
+
 #Tamanho do ecran
 Cumprimento = 1300
 Largura = 650
@@ -15,3 +17,7 @@ Square_Size = Width // Cols
 #Cores
 Black = (0, 0, 0)
 White = (255, 255, 255)
+
+#Peças
+Sheep = pygame.image.load('Mini_Sheep.png')
+Wolf = pygame.image.load('Mini_Wolf.png')

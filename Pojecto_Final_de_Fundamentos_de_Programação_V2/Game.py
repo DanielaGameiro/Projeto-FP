@@ -1,10 +1,16 @@
 import pygame
 from pygame.locals import*
-from Constantes import Cumprimento, Largura, White
+from Constantes import Cumprimento, Largura, White, Square_Size
 from Board import Board
 from Wolf_Piece import Wolf
 from Sheep_Piece import Sheep
 import pygame.freetype
+
+def Get_row_and_col_from_mouse(pos):
+    x, y = pos
+    row = y // Square_Size
+    col = x // Square_Size
+    return row, col
 
 def Game():
 
@@ -21,14 +27,10 @@ def Game():
 
     clock = pygame.time.Clock()
 
-    Board_Game = Board()
+    Sheep = pygame.image.load('Mini_Sheep.png')
+    Wolf = pygame.image.load('Mini_Wolf.png')
 
-    Wolf_0 = Wolf(351, 100, screen)
-    Wolf_1 = Wolf(475, 100, screen)
-    Wolf_2 = Wolf(599, 100, screen)
-    Wolf_3 = Wolf(723, 100, screen)
-
-    Sheep_1 = Sheep(535, 535, screen)
+    Board_Game = Board(Sheep, Wolf) #O constructor recebe dois parametros
 
     running = True
 
@@ -39,7 +41,7 @@ def Game():
         return_rect = pygame.draw.rect(screen, (223, 0, 100), (1050, 550, 200, 60), 0)
         return_rect_interior = pygame.draw.rect(screen, (255, 138, 190), (1062, 555, 175, 50), 0)
 
-        white = pygame.draw.rect(screen, White, (350, 100, 496, 496), 0)
+        white = pygame.draw.rect(screen, White, (92, 40, 496, 496), 0)
 
         leave = pygame.font.SysFont("NotoSans-Regular.ttff", 70)
         leave_surface = leave.render("Exit", True, White)
@@ -48,30 +50,22 @@ def Game():
             if (event.type == pygame.QUIT):
                 running = False
 
-        mx, my = pygame.mouse.get_pos()
-        mb = pygame.mouse.get_pressed()
+            mx, my = pygame.mouse.get_pos()
+            mb = pygame.mouse.get_pressed()
 
-        if (mx > 1050) and (mx < 1250) and (my > 550) and (my < 610):
-            return_rect = pygame.draw.rect(screen, (0, 0, 100), (1050, 550, 200, 60), 0)
-            return_rect_interior = pygame.draw.rect(screen, (0, 138, 190), (1062, 555, 175, 50), 0)
-            if (mb[0]):
-                return
+            if (mx > 1050) and (mx < 1250) and (my > 550) and (my < 610):
+                return_rect = pygame.draw.rect(screen, (0, 0, 100), (1050, 550, 200, 60), 0)
+                return_rect_interior = pygame.draw.rect(screen, (0, 138, 190), (1062, 555, 175, 50), 0)
+                if (mb[0]):
+                    return
 
-        k = pygame.key.get_pressed()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                row, col = Get_row_and_col_from_mouse(pos)
 
-        if (k[pygame.K_LEFT]):
-            Sheep_1.going_up_left()
-        elif(k[pygame.K_RIGHT]):
-            Sheep_1.going_up_right()
-        elif(k[pygame.K_DOWN]):
-            Sheep_1.going_down()
+        
 
         screen.blit(leave_surface, (1100, 560))
         clock.tick(60)
         Board_Game.Draw(screen)
-        Wolf_0.draw_wolf()
-        Wolf_1.draw_wolf()
-        Wolf_2.draw_wolf()
-        Wolf_3.draw_wolf()
-        Sheep_1.draw_sheep()
         pygame.display.flip()
