@@ -33,8 +33,9 @@ def Game():
     Board_Game = Board(Sheep, Wolf)
 
     Piece = Board_Game.Get_Piece(0, 1)
-    print(Piece)
-    print(Board_Game.Move(Piece, 4, 3)) #Para onde foi o lobo? Saiu do ecrâ?
+    Board_Game.Move(Piece, 4, 3)
+    
+    b3 = pygame.mixer.Sound('bye.mp3')
 
     running = True
 
@@ -60,6 +61,7 @@ def Game():
             if (mx > 1050) and (mx < 1250) and (my > 550) and (my < 610):
                 return_rect = pygame.draw.rect(screen, (0, 0, 100), (1050, 550, 200, 60), 0)
                 return_rect_interior = pygame.draw.rect(screen, (0, 138, 190), (1062, 555, 175, 50), 0)
+                b3.play()
                 if (mb[0]):
                     return
 

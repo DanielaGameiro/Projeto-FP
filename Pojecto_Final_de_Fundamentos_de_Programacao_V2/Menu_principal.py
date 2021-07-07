@@ -45,6 +45,11 @@ def Menu_principal():
     leave = pygame.font.SysFont("NotoSans-Regular.ttff", 70)
     leave_surface = rules.render("Exit", True, White)
 
+    b1 = pygame.mixer.Sound('Lets play.mp3')
+    b2 = pygame.mixer.Sound('rules.mp3')
+    b3 = pygame.mixer.Sound('bye.mp3')
+    Wolf_sound = pygame.mixer.Sound('wolf.mp3')
+
     clock = pygame.time.Clock()
 
     running = True
@@ -74,18 +79,21 @@ def Menu_principal():
         if (mx > 550) and (mx < 750) and (my > 250) and (my < 310):
             rect1_exterior = pygame.draw.rect(screen, (0, 0, 100), (550, 250, 200, 60), 0)
             rect1_interior = pygame.draw.rect(screen, (0, 138, 190), (562, 255, 175, 50), 0)
+            b1.play()
             if (mb[0]):
                 Game()
         
         elif (mx > 550) and (mx < 750) and (my > 350) and (my < 410):
             rect2_exterior = pygame.draw.rect(screen, (0, 0, 100), (550, 350, 200, 60), 0)
             rect2_interior = pygame.draw.rect(screen, (0, 138, 190), (562, 355, 175, 50), 0)
+            b2.play()
             if (mb[0]):
                 Rules()
 
         elif (mx > 550) and (mx < 750) and (my > 450) and (my < 510):
             rect3_exterior = pygame.draw.rect(screen, (0, 0, 100), (550, 450, 200, 60), 0)
             rect3_interior = pygame.draw.rect(screen, (0, 138, 190), (562, 455, 175, 50), 0)
+            b3.play()
             if (mb[0]):
                 running = False
        
