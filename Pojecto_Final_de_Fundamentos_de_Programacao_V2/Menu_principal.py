@@ -1,6 +1,5 @@
 #Importar bibliotecas e modulos necessários
 import pygame
-import os
 from pygame.locals import*
 from Constantes import Cumprimento, Largura, White
 from Game import Game

@@ -1,6 +1,5 @@
 #Importar variáveis e bibliotecas
 import pygame
-import os
 from pygame.locals import*
 from Constantes import Cumprimento, Largura, White
 import pygame.freetype
