@@ -2,10 +2,10 @@ import pygame
 from pygame.locals import*
 from Constantes import Cumprimento, Largura, White, Square_Size
 from Board import Board
-from Wolf_Piece import Wolf
-from Sheep_Piece import Sheep
+from Game_function import Game_functions
 import pygame.freetype
 
+#Para obter a posição do rato
 def Get_row_and_col_from_mouse(pos):
     x, y = pos
     row = y // Square_Size
@@ -30,23 +30,19 @@ def Game():
     Sheep = pygame.image.load('Mini_Sheep.png')
     Wolf = pygame.image.load('Mini_Wolf.png')
 
-    Board_Game = Board(Sheep, Wolf)
-
-    Piece = Board_Game.Get_Piece(0, 1)
-    Board_Game.Move(Piece, 4, 3)
+    #Chamar a classe Board que irá receber 2 parametros
+    game =  Game_functions(screen)
     
     b3 = pygame.mixer.Sound('bye.mp3')
 
-    running = True
-
-    while (running):
+    while True:
 
         screen.fill((214, 162, 94))
 
         return_rect = pygame.draw.rect(screen, (223, 0, 100), (1050, 550, 200, 60), 0)
         return_rect_interior = pygame.draw.rect(screen, (255, 138, 190), (1062, 555, 175, 50), 0)
 
-        white = pygame.draw.rect(screen, White, (92, 40, 496, 496), 0)
+        white = pygame.draw.rect(screen, White, (0, 0, 800, 800), 0)
 
         leave = pygame.font.SysFont("NotoSans-Regular.ttff", 70)
         leave_surface = leave.render("Exit", True, White)
@@ -54,6 +50,11 @@ def Game():
         for event in pygame.event.get():
             if (event.type == pygame.QUIT):
                 running = False
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                row, col = Get_row_and_col_from_mouse(pos)
+                
 
             mx, my = pygame.mouse.get_pos()
             mb = pygame.mouse.get_pressed()
@@ -64,14 +65,9 @@ def Game():
                 b3.play()
                 if (mb[0]):
                     return
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-                row, col = Get_row_and_col_from_mouse(pos)
-
         
 
         screen.blit(leave_surface, (1100, 560))
         clock.tick(60)
-        Board_Game.Draw(screen)
+        game.Update()
         pygame.display.flip()

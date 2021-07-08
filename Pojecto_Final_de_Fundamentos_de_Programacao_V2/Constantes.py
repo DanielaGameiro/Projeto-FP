@@ -2,17 +2,17 @@ import pygame
 
 #Tamanho do ecran
 Cumprimento = 1300
-Largura = 650
+Largura = 800
 
 #Tamanho do tabuleiro
-Width = 500
-Height = 500
+Width = 800
+Height = 800
 
 #Linhas e colunas
-Rows, Cols = 8,8
+Rows, Cols = 8, 8
 
 #Tamanho dos quadrados
-Square_Size = Width // Cols
+Square_Size = Width // (Cols)
 
 #Cores
 Black = (0, 0, 0)
