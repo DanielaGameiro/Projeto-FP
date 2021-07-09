@@ -1,6 +1,6 @@
 import pygame
 from Board import Board
-from Constantes import Sheep, Wolf
+from Constantes import Sheep, Wolf, Blue, Square_Size
 
 class Game_functions:
     def __init__(self, win):
@@ -30,10 +30,31 @@ class Game_functions:
         piece = self.valid_move(self.selected, row, col)
         if piece != 0 and piece.color == self.turn:
             self.selected = piece
+            self.valid_moves = self.board.Get_Valid_Moves(piece)
+            return True
+
+        return False
 
     def _Move(self, row, col):
         piece = self.board.Get_Piece(row, col)
-        if self.selected and piece == 0 and (row, col) in self.Valid_moves:
+        if self.selected and piece == 0 and (row, col) in self.valid_moves:
             self.board.Move(self.selected, row, col)
+            skipped = self.valid_moves[(row, col)]
+            if skipped:
+                self.board.Remove(skipped)
+            self.Change_Turn()
+        else:
+            return False
+        return True
     
-    def 
+    def Draw_Valid_Moves(self, moves):
+        for move in moves:
+            row, col = move
+            pygame.draw.circle(self.win, Blue, (col * Square_Size + Square_Size // 2, row * Square_Size + Square_Size // 2), 15)
+
+    def Change_Turn(self):
+        self.valid_moves = {}
+        if self.turn == Wolf:
+            self.turn = Sheep
+        else:
+            self.turn = Wolf

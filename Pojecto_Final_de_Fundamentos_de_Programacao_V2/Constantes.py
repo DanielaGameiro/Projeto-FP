@@ -17,6 +17,7 @@ Square_Size = Width // (Cols)
 #Cores
 Black = (0, 0, 0)
 White = (255, 255, 255)
+Blue = (0, 0, 255)
 
 #Peças
 Sheep = pygame.image.load('Mini_Sheep.png')

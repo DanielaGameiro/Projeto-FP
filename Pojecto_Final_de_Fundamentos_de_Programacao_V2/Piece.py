@@ -6,12 +6,6 @@ class Pieces:
         self.row = row
         self.col = col
         self.color = color
-
-        if self.color == Sheep:
-            self.direction = -1 
-        else:
-            self.direction = 1
-        
         self.x = 0
         self.y = 0
         self.Calc_pos()
