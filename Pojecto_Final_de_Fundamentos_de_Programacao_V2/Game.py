@@ -5,13 +5,6 @@ from Board import Board
 from Game_function import Game_functions
 import pygame.freetype
 
-#Para obter a posição do rato
-def Get_row_and_col_from_mouse(pos):
-    x, y = pos
-    row = y // Square_Size
-    col = x // Square_Size
-    return row, col
-
 def Game():
 
     #É aqui que o jogo acontce
@@ -29,9 +22,6 @@ def Game():
 
     Sheep = pygame.image.load('Mini_Sheep.png')
     Wolf = pygame.image.load('Mini_Wolf.png')
-
-    #Chamar a classe Board que irá receber 2 parametros
-    game =  Game_functions(screen)
     
     b3 = pygame.mixer.Sound('bye.mp3')
 
@@ -52,8 +42,7 @@ def Game():
                 running = False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-                row, col = Get_row_and_col_from_mouse(pos)
+                pass
                 
 
             mx, my = pygame.mouse.get_pos()
