@@ -27,7 +27,7 @@ class Game_functions:
                 self.selected = None
                 self.select(row, col)
 
-        piece = self.valid_move(self.selected, row, col)
+        piece = self.valid_moves(self.selected, row, col)
         if piece != 0 and piece.color == self.turn:
             self.selected = piece
             self.valid_moves = self.board.Get_Valid_Moves(piece)

@@ -31,7 +31,7 @@ def Game():
     Wolf = pygame.image.load('Mini_Wolf.png')
 
     #Chamar a classe Board que irá receber 2 parametros
-    game =  Game_functions(screen)
+    Game =  Game_functions(screen)
     
     b3 = pygame.mixer.Sound('bye.mp3')
 
@@ -54,6 +54,7 @@ def Game():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 row, col = Get_row_and_col_from_mouse(pos)
+                Game.Select(row, col)
                 
 
             mx, my = pygame.mouse.get_pos()
@@ -69,5 +70,5 @@ def Game():
 
         screen.blit(leave_surface, (1100, 560))
         clock.tick(60)
-        game.Update()
+        Game.Update()
         pygame.display.flip()
