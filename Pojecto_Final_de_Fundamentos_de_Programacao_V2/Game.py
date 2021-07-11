@@ -58,5 +58,4 @@ def Game():
 
         screen.blit(leave_surface, (1100, 560))
         clock.tick(60)
-        game.Update()
         pygame.display.flip()
