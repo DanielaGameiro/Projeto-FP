@@ -23,11 +23,11 @@ def Menu_principal():
     pygame.display.set_icon(icon)
 
     #Carregar as imagens
-    Sheep = pygame.image.load('Sheep.png').convert_alpha()
+    Sheep = pygame.image.load('Sheep.png')
     Sheep_x = 1000
     Sheep_y = 0
 
-    Wolf = pygame.image.load('Wolf.png').convert_alpha()
+    Wolf = pygame.image.load('Wolf.png')
     Wolf_x = 20
     Wolf_y = 0
 

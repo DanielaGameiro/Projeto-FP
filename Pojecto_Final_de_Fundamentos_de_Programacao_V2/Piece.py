@@ -12,8 +12,8 @@ class Pieces:
 
     #Calculo das coordenads das peças
     def Calc_pos(self):
-        self.x = Square_Size * self.col + Square_Size // 2
-        self.y = Square_Size * self.row + Square_Size // 2
+        self.x = Square_Size * self.col
+        self.y = Square_Size * self.row
 
     #Mover as peças
     def Move(self, row, col):

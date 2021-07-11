@@ -28,12 +28,12 @@ class Board:
         for row in range(Rows):
             self.board.append([])
             for col in range(Cols):
-                if col % 2 == ((row + 1) % 2):
+                if col % 2 == (row % 2):
                     if row < 3 and self.wolves_left != 0:
-                        self.board[row].append(Pieces(row , col, self.wolves_left))
+                        self.board[row].append(Pieces(row, col, self.wolves_left))
                         self.wolves_left = self.wolves_left - 1
                     elif row > 4 and self.sheep_left != 0:
-                        self.board[row].append(Pieces(row + 0.5, col + 0.5, self.wolves_left))
+                        self.board[row].append(Pieces(row, col, self.wolves_left))
                         self.sheep_left = 0
                     else:
                         self.board[row].append(0)
