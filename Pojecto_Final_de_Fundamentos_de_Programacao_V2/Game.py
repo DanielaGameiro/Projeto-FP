@@ -32,19 +32,13 @@ def Game():
         return_rect = pygame.draw.rect(screen, (223, 0, 100), (1050, 550, 200, 60), 0)
         return_rect_interior = pygame.draw.rect(screen, (255, 138, 190), (1062, 555, 175, 50), 0)
 
-        white = pygame.draw.rect(screen, White, (0, 0, 800, 800), 0)
-
         leave = pygame.font.SysFont("NotoSans-Regular.ttff", 70)
         leave_surface = leave.render("Exit", True, White)
 
         for event in pygame.event.get():
             if (event.type == pygame.QUIT):
                 running = False
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pass
                 
-
             mx, my = pygame.mouse.get_pos()
             mb = pygame.mouse.get_pressed()
 
@@ -54,8 +48,17 @@ def Game():
                 b3.play()
                 if (mb[0]):
                     return
+
+        for r in range(0, 480, 60):
+            for c in range(0, 520,70):
+                rect = pygame.draw.rect(screen, (255, 255, 255), (r, c, 60, 60), 0)
+                rect1 = pygame.draw.rect(screen, (0, 0, 0), (r, c, 60, 60), 9)
+
+        for i in range (60, 500, 120):
+            screen.blit(Wolf, (i, 0))
         
 
         screen.blit(leave_surface, (1100, 560))
+        screen.blit(Sheep, (180, 480))
         clock.tick(60)
         pygame.display.flip()
