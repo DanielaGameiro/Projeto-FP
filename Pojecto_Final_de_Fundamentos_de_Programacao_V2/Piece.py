@@ -15,12 +15,6 @@ class Pieces:
         self.x = Square_Size * self.col
         self.y = Square_Size * self.row
 
-    #Mover as peças
-    def Move(self, row, col):
-        self.row = row
-        self.col = col
-        self.Calc_pos()
-
     #Desenha as peças
     def Draw_Wolf (self, win):
         Wolf = pygame.image.load('Mini_Wolf.png')
@@ -29,3 +23,9 @@ class Pieces:
     def Draw_Sheep(self, win):
         Sheep = pygame.image.load('Mini_Sheep.png')
         win.blit(Sheep, (self.x, self.y))
+
+    #Mover as peças
+    def Move(self, row, col):
+        self.row = row
+        self.col = col
+        self.Calc_pos()

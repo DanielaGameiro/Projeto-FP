@@ -9,6 +9,7 @@ class Game_functions:
 
     def Update(self):
         self.board.Draw(self.win)
+        self.Draw_Valid_Moves(self.valid_moves)
         pygame.display.update()
 
     def _Init(self):
@@ -25,9 +26,9 @@ class Game_functions:
             result = self._Move(row, col)
             if not result:
                 self.selected = None
-                self.select(row, col)
+                self.Select(row, col)
 
-        piece = self.valid_moves[self.selected, row, col]
+        piece = self.board.Get_Piece(row, col)
         if piece != 0 and piece.color == self.turn:
             self.selected = piece
             self.valid_moves = self.board.Get_Valid_Moves(piece)
