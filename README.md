@@ -45,3 +45,14 @@ TypeError: expected str, bytes or os.PathLike object, not BytesIO
 Examinando o texto, parece que o erro desta vez das próprias fontes (letras) do python. Parece que a build não está a reagir bem às fontes (letras) usadas no jogo.
 
 Infelizmente, este erro não foi resolvido. Não tinha acesso a essa biblioteca interior do python.
+
+# Referências
+
+Para fazer este trabalho, houve uma pesquisa e algum auxilio da Internet.
+
+Estes são os links de onde a ajuda veio:
+
+- https://www.youtube.com/watch?v=vnd3RfeG3NM&t=461s
+- https://www.youtube.com/watch?v=LSYj8GZMjWY
+- https://www.youtube.com/watch?v=_kOXGzkbnps
+- tps://www.pygame.org/docs/ref/key.html
