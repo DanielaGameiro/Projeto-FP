@@ -45,12 +45,16 @@ def Rules():
     boa_sorte = pygame.font.SysFont("NotoSans-Regular.ttff", 90)
     boa_sorte_surface = boa_sorte.render("Boa Sorte aos jogadores!!!", True, White)
 
+    Background3 = pygame.image.load('Background3.png')
+
     clock = pygame.time.Clock()
     running = True
 
     while (running):
 
         screen.fill((214, 162, 94))
+
+        screen.blit(Background3, (0, 0))
 
         rect1_exterior = pygame.draw.rect(screen, (223, 0, 100), (1050, 550, 200, 60), 0)
         rect1_interior = pygame.draw.rect(screen, (255, 138, 190), (1062, 555, 175, 50), 0)

@@ -33,11 +33,14 @@ def Game():
     #Chamar a classe Board que irá receber 2 parametros
     Game =  Game_functions(screen)
     
+    Background2 = pygame.image.load('Background2.png')
+
     b3 = pygame.mixer.Sound('bye.mp3')
 
     while True:
 
         screen.fill((214, 162, 94))
+        screen.blit(Background2, (0, 0))
 
         return_rect = pygame.draw.rect(screen, (223, 0, 100), (1050, 550, 200, 60), 0)
         return_rect_interior = pygame.draw.rect(screen, (255, 138, 190), (1062, 555, 175, 50), 0)

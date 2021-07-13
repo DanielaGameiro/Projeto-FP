@@ -22,6 +22,9 @@ def Menu_principal():
     icon = pygame.image.load('Wolf_&_Sheep_V2.png')
     pygame.display.set_icon(icon)
 
+    #Carregar background
+    Background = pygame.image.load("Background.png")
+
     #Carregar as imagens
     Sheep = pygame.image.load('Sheep.png')
     Sheep_x = 1000
@@ -58,6 +61,7 @@ def Menu_principal():
 
         #Dar cor ao ecran
         screen.fill((214, 162, 94))
+        screen.blit(Background, (0, 0))
 
         #Botões
         rect1_exterior = pygame.draw.rect(screen, (223, 0, 100), (550, 250, 200, 60), 0)
