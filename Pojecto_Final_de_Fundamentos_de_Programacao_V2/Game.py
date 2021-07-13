@@ -35,6 +35,7 @@ def Game():
     
     Background2 = pygame.image.load('Background2.png')
 
+    #Som
     b3 = pygame.mixer.Sound('bye.mp3')
 
     while True:

@@ -47,6 +47,7 @@ def Menu_principal():
     leave = pygame.font.SysFont("NotoSans-Regular.ttff", 70)
     leave_surface = rules.render("Exit", True, White)
 
+    #Sons
     b1 = pygame.mixer.Sound('Lets play.mp3')
     b2 = pygame.mixer.Sound('rules.mp3')
     b3 = pygame.mixer.Sound('bye.mp3')

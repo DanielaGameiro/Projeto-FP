@@ -51,10 +51,12 @@ class Board:
                 elif piece != 0 and row > 4:
                     piece.Draw_Sheep(win)
 
+    #Remover peças
     def Remove(self, pieces):
         for piece in pieces:
             self.board[piece.row][piece.col] = 0
 
+    #Ver se há movimentos disponiveis
     def Get_Valid_Moves(self, piece):
         moves = {}
         left = piece.col - 1
@@ -71,6 +73,7 @@ class Board:
 
         return moves
 
+    # Diagonal para a esquerda
     def _Traverse_Left(self, start, stop, step, color, left, skipped = []):
         moves = []
         last = []
@@ -92,6 +95,7 @@ class Board:
 
         return moves
 
+    # Diagonal para a direita
     def _Traverse_Right(self, start, stop, step, color, right, skipped = []):
         moves = {}
         last = []
